@@ -1,0 +1,9 @@
+env/
+data
+dist/
+build/
+test.py
+TODO.md
+*-setup-*
+**/__pycache__
+**/*.egg-info/
