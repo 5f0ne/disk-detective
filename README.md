@@ -7,10 +7,9 @@ Provides tools to analyze disks on byte level
 - Master Boot Record Examiner
   - Provides information and analysis of MBR
 
-
 # Under Construction
 
-- Disk Structure Information
+- Disk Usage Information
   - Overview of disk space usage based on MBR information
 
 # Future Tools
@@ -32,12 +31,12 @@ Provides tools to analyze disks on byte level
 
 **From command line:**
 
-`python -m disk_detective --path PATH --mode {mbr}`
+`python -m disk_detective --path PATH --mode {mbr, usage}`
 
 | Option | Short | Type | Default | Description |
 |---|---|---|---|---|
 |--path | -p | String | - | Path to file (dd, raw) or <br> path to disk (\\.\PhysicalDrive0, /dev/sda, /dev/disk1)|
-|--mode | -p | String | - | mbr = Examines the MBR <br> structure = Overview of disk space|
+|--mode | -p | String | - | mbr = Examines the MBR <br> usage = Overview of disk space usage|
 
 # Example
 
