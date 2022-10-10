@@ -50,9 +50,11 @@ Provides tools to analyze disks on byte level
 
 Please find the result [here](example/example-mbr.txt)
 
+<hr>
+
 **Output for mode == fat**
 
-`python -m disk_detective -p path/to/example.dd -m mbr -o 1048576`
+`python -m disk_detective -p path/to/example.dd -m fat -o 1048576`
 
 Please find the result [here](example/example-fat.txt)
 
