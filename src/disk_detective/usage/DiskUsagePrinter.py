@@ -1,10 +1,10 @@
-class DiskStructurePrinter():
+class DiskUsagePrinter():
     def __init__(self) -> None:
         self.__list = []
 
     def print(self, mbr):
         print("")
-        print("Disk Structure Overview")
+        print("Disk Usage Overview")
         print("-----------------------")
         print("")
         counter = 0
@@ -41,15 +41,12 @@ class DiskStructurePrinter():
 
             counter += 1
 
-
-
     def __printHeader(self):
         formatStr = "| {:12} | {:30} | {:12} | {:12} | {:14} |".format("  Number #", " Possible FS Types",  " Start LBA", "   End LBA", " No. of Sectors")
         print("-"*len(formatStr))
         print(formatStr)
         print("-"*len(formatStr))
 
-    
     def __printLine(self, counter, partitionTypes, startLba, endLba, noOfSectors):
         if(type(partitionTypes) == list and len(partitionTypes) > 1):
             # Multiline Print

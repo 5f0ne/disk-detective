@@ -1,3 +1,4 @@
+from cnvrtr.Converter import Converter
 from partitiontypes.PartitionTypes import PartitionTypes
 
 class PartitionEntry():
@@ -15,6 +16,7 @@ class PartitionEntry():
         self.offset = bytearray()                       #   4 Byte
         # Number of sectors / size of partition
         self.noOfSectors = bytearray()                  #   4 Byte
+        self._cnvrtr = Converter()
         
         self.fSectorBin = ""
         self.lSectorBin = ""
@@ -61,28 +63,12 @@ class PartitionEntry():
         self.noOfSectors.extend(noOfSectors)
 
         h = self.fSector.hex(" ").replace(" ", "")
-        self.fSectorBin = self.__hexToBin(h).rjust(24, "0")
+        self.fSectorBin = self._cnvrtr.hexToBin(h).rjust(24, "0")
         self.__calculateCHS("start", self.fSectorBin)
 
         h = self.lSector.hex(" ").replace(" ", "")
-        self.lSectorBin = self.__hexToBin(h).rjust(24, "0")
+        self.lSectorBin = self._cnvrtr.hexToBin(h).rjust(24, "0")
         self.__calculateCHS("end", self.lSectorBin)
-
-    def __toLittleEndian(self, value):
-        # example for value = "20 21 00"
-        s = value.split(" ")
-        h_ = "".join(s[i] for i in range(len(s)-1, -1, -1))
-        return h_
-
-    def __hexToBin(self, hex):
-        return bin(int(hex, base=16)).replace("0b","")
-
-    def __hexToDec(self, hex_):
-        return int(hex_, 16)
-
-    def __binToDec(self, bin):
-        # example for bin = "100001"
-        return int(bin, 2)
 
     def __calculateCHS(self, type_, binary):
         if(len(binary) < 24):
@@ -90,7 +76,6 @@ class PartitionEntry():
 
         self.chs[type_]["headbin"] = "".join(binary[i:i+8] for i in range(0, 8, 8))
 
-        
         firstTwoCylBits = "".join(binary[i:i+2] for i in range(8, 10, 2))
 
         self.chs[type_]["sectorbin"] = "".join(binary[i:i+6] for i in range(10, 16, 6))
@@ -99,20 +84,20 @@ class PartitionEntry():
 
         self.chs[type_]["cylinderbin"]  = firstTwoCylBits + lastSixCylBits
 
-        self.chs[type_]["head"] = self.__binToDec(self.chs[type_]["headbin"])
-        self.chs[type_]["sector"] = self.__binToDec(self.chs[type_]["sectorbin"])
-        self.chs[type_]["cylinder"] = self.__binToDec(self.chs[type_]["cylinderbin"])
+        self.chs[type_]["head"] = self._cnvrtr.binToDec(self.chs[type_]["headbin"])
+        self.chs[type_]["sector"] = self._cnvrtr.binToDec(self.chs[type_]["sectorbin"])
+        self.chs[type_]["cylinder"] = self._cnvrtr.binToDec(self.chs[type_]["cylinderbin"])
 
 
     def getOffsetLBA(self):
         h = self.offset.hex(" ")
-        lEHex = self.__toLittleEndian(h)
-        return self.__hexToDec(lEHex)
+        lEHex = self._cnvrtr.toLittleEndian(h)
+        return self._cnvrtr.hexToDec(lEHex)
 
     def getNoOfSectors(self):
         h = self.noOfSectors.hex(" ")
-        lEHex = self.__toLittleEndian(h)
-        return self.__hexToDec(lEHex)
+        lEHex = self._cnvrtr.toLittleEndian(h)
+        return self._cnvrtr.hexToDec(lEHex)
 
     def getNoOfBytes(self):
         return self.getNoOfSectors() * 512

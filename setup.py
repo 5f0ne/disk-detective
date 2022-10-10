@@ -5,7 +5,7 @@ with open("README.md", "r") as r:
 
 setup(
     name="disk_detective",            
-    version="0.1.0",
+    version="0.2.0",
     author="5f0",
     url="https://github.com/5f0ne/disk-detective",
     description="Provides tools to analyze disks on byte level",
@@ -20,8 +20,9 @@ setup(
     package_dir={"": "src"},
     packages=find_packages(where='src'),
     install_requires=[
-        "hash_calc",
-        "partitiontypes"
+        "hash_calc==1.1.0",
+        "partitiontypes==1.0.1",
+        "cnvrtr==1.0.0"
     ],
     entry_points={
         "console_scripts": [
