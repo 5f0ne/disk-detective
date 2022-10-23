@@ -6,5 +6,6 @@ output/
 test.py
 TODO.md
 *-setup-*
+testfile.py
 **/__pycache__
 **/*.egg-info/

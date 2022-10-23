@@ -59,7 +59,7 @@
         "start": 28,
         "end": 31,
         "action": {
-            "type": "amount",
+            "type": "decimal",
             "endianess": "little"
         }
     },

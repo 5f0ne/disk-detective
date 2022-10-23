@@ -5,7 +5,8 @@
         "start": 54,
         "end": 61,
         "action":{
-            "type": "ascii"
+            "type": "ascii",
+            "nonAsciiPlaceholder": "."
         }
     },
     {
@@ -14,7 +15,8 @@
         "start": 82,
         "end": 89,
         "action":{
-            "type": "ascii"
+            "type": "ascii",
+            "nonAsciiPlaceholder": "."
         }
     }
 ]

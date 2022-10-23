@@ -4,7 +4,8 @@ import json
 class ConfigLoader():
     def __init__(self) -> None:
         self.config = {
-            "fat": ["fat.json", "fat1216.json", "fat32.json", "fat-type.json", "fat-fs-info.json"],
+            "fat": ["fat.json", "fat1216.json", "fat32.json", "fat-type.json", "fat-fs-info.json",
+                    "fat-long-filename.json", "fat-directory-entry.json"],
             "ext": ["ext-file-descriptor-table.json", "ext-inode.json", "ext-super-block.json"],
             "ntfs": [""],
             "mbr": ["mbr.json"]

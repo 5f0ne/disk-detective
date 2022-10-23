@@ -7,7 +7,7 @@ class Controller():
     def __init__(self) -> None:
         self.startTime = time.time()
 
-    def printHeader(self, path, hash):
+    def printHeader(self, path, hash, offset):
         print("###########################################################################################")
         print("")
         print("Disk Detective by 5f0")
@@ -18,6 +18,8 @@ class Controller():
         print("")
         print("                      MD5: " + hash.md5)
         print("                   SHA256: " + hash.sha256)
+        print("")
+        print("          Offset in Bytes: " + str(offset))
         print("")
         print(" Datetime: " + datetime.now().strftime("%d/%m/%Y %H:%M:%S"))
         print("")

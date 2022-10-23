@@ -60,6 +60,7 @@
         "end": 64,
         "action":{
             "type": "equals",
+            "endianess": "big",
             "cmp": [
                 {
                     "value": "00",
@@ -86,6 +87,7 @@
         "end": 66,
         "action":{
             "type": "equals",
+            "endianess": "big",
             "cmp": [
                 {
                     "value": "29",
@@ -107,7 +109,8 @@
         "start": 71,
         "end": 81,
         "action":{
-            "type": "ascii"
+            "type": "ascii",
+            "nonAsciiPlaceholder": "."
         }
     },
     {
@@ -116,7 +119,8 @@
         "start": 82,
         "end": 89,
         "action":{
-            "type": "ascii"
+            "type": "ascii",
+            "nonAsciiPlaceholder": "."
         }
     },
     {
@@ -125,7 +129,8 @@
         "start": 90,
         "end": 509,
         "action": {
-            "type": "hexdump"
+            "type": "hexdump",
+            "nonAsciiPlaceholder": "."
         }
     },
     {

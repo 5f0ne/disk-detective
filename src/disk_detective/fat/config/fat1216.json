@@ -53,7 +53,8 @@
         "start": 43,
         "end": 53,
         "action":{
-            "type": "ascii"
+            "type": "ascii",
+            "nonAsciiPlaceholder": "."
         }
     },
     {
@@ -62,7 +63,8 @@
         "start": 54,
         "end": 61,
         "action":{
-            "type": "ascii"
+            "type": "ascii",
+            "nonAsciiPlaceholder": "."
         }
     },
     {
@@ -71,7 +73,8 @@
         "start": 62,
         "end": 509,
         "action": {
-            "type": "hexdump"
+            "type": "hexdump",
+            "nonAsciiPlaceholder": "."
         }
     },
     {

@@ -17,18 +17,6 @@ from disk_detective.fat.FATParser import FATParser
 
 from disk_detective.usage.DiskUsagePrinter import DiskUsagePrinter
 
-def loadFATConfigs():
-    fatConfigs = []
-    configs = ["fat.json", "fat1216.json", "fat32.json", "fat-type.json", "fat-fs-info.json"]
-    p = os.path.join(os.path.dirname(__file__), "fat", "config")
-    for config in configs:
-        fullPath = os.path.join(p, config)
-        f = open(fullPath, encoding="utf8")
-        fatConfigs.append((config, json.load(f)))
-        f.close()
-    return fatConfigs
-
-
 def main(args=None):
     """The main routine."""
     if args is None:
@@ -36,15 +24,15 @@ def main(args=None):
 
     parser = argparse.ArgumentParser()
     parser.add_argument("--path", "-p", type=str, required=True, help="Path to file")
-    parser.add_argument("--mode", "-m", choices=["mbr", "usage", "fat-vbr", "fat-fsinfo"], required=True, help="The tool to use")
-    parser.add_argument("--offset", "-o", type=int, help="The offset to start reading (used in mode=fat)")
+    parser.add_argument("--mode", "-m", choices=["mbr", "usage", "fat-vbr", "fat-fsinfo", "fat-lfn", "fat-dir-entry"], required=True, help="The tool to use")
+    parser.add_argument("--offset", "-o", type=int, default = 0, help="The offset to start reading (used in mode=fat)")
     args = parser.parse_args()
 
     c = Controller()
     loader = ConfigLoader()
     hash = HashCalc(args.path)
 
-    c.printHeader(args.path, hash)
+    c.printHeader(args.path, hash, args.offset)
 
     if(args.mode == "mbr"):
         with open(args.path, "rb") as f:
@@ -75,7 +63,25 @@ def main(args=None):
             fatConfigs = loader.load(os.path.dirname(__file__), "fat")
             fat = parser.parseFsInfo(fatBytes, fatConfigs[4][1])
             fatPrinter = FATPrinter()
-            fatPrinter.printFsInfo(fat)       
+            fatPrinter.printFsInfo(fat)    
+    elif(args.mode == "fat-lfn"):    
+         with open(args.path, "rb") as f:
+            f.seek(args.offset, 0)
+            fatBytes = f.read(32)
+            parser = FATParser()
+            fatConfigs = loader.load(os.path.dirname(__file__), "fat")
+            fat = parser.parseLFN(fatBytes, fatConfigs[5][1])
+            fatPrinter = FATPrinter()
+            fatPrinter.printLFN(fat)
+    elif(args.mode == "fat-dir-entry"):    
+         with open(args.path, "rb") as f:
+            f.seek(args.offset, 0)
+            fatBytes = f.read(32)
+            parser = FATParser()
+            fatConfigs = loader.load(os.path.dirname(__file__), "fat")
+            fat = parser.parseDirEntry(fatBytes, fatConfigs[6][1])
+            fatPrinter = FATPrinter()
+            fatPrinter.printDirEntry(fat)  
         
     c.printExecutionTime()
 

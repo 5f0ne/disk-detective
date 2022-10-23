@@ -11,7 +11,8 @@
         "start": 4,
         "end": 483,
         "action":{
-            "type": "hexdump"
+            "type": "hexdump",
+            "nonAsciiPlaceholder": "."
         }
     },
     {
@@ -46,7 +47,8 @@
         "start": 496,
         "end": 507,
         "action":{
-            "type": "hexdump"
+            "type": "hexdump",
+            "nonAsciiPlaceholder": "."
         }
     },
     {

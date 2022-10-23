@@ -1,0 +1,66 @@
+[
+    {
+        "name": "sequenceNumber",
+        "description": "Sequence Number | Allocation State (0x00 - 0x00  | 1 Byte)",
+        "start": 0,
+        "end": 0
+    },
+    {
+        "name": "name15Unicode",
+        "description": "Filename Characters 1 - 5  (Unicode) (0x01 - 0x0A  | 10 Byte)",
+        "start": 1,
+        "end": 10,
+        "action":{
+            "type": "ascii",
+            "nonAsciiPlaceholder": "."
+        }
+    },
+    {
+        "name": "fileAttr",
+        "description": "File Attributes (0x0B - 0x0B  | 1 Byte)",
+        "start": 11,
+        "end": 11,
+        "action":{
+            "type": "binary",
+            "endianess": "big"
+        }
+    },
+    {
+        "name": "reserved1",
+        "description": "Reserved (0x0C - 0x0C  | 1 Byte)",
+        "start": 12,
+        "end": 12
+    },
+    {
+        "name": "checksumValue",
+        "description": "Checksum Value (0x0D - 0x0D | 1 Byte)",
+        "start": 13,
+        "end": 13
+    },
+    {
+        "name": "name611Unicode",
+        "description": "Filename Characters 6 - 11  (Unicode) (0x0E - 0x19  | 12 Byte)",
+        "start": 14,
+        "end": 25,
+        "action":{
+            "type": "ascii",
+            "nonAsciiPlaceholder": "."
+        }
+    },
+    {
+        "name": "reserved2",
+        "description": "Reserved (0x1A - 0x1B | 2 Byte)",
+        "start": 26,
+        "end": 27
+    },
+    {
+        "name": "name611Unicode",
+        "description": "Filename Characters 6 - 11  (Unicode) (0x0E - 0x19  | 12 Byte)",
+        "start": 28,
+        "end": 31,
+        "action":{
+            "type": "ascii",
+            "nonAsciiPlaceholder": "."
+        }
+    }
+]

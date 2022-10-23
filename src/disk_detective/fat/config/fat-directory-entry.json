@@ -5,7 +5,8 @@
         "start": 0,
         "end": 0,
         "action":{
-            "type": "ascii"
+            "type": "ascii",
+            "nonAsciiPlaceholder": "."
         }
     },
     {
@@ -14,14 +15,50 @@
         "start": 1,
         "end": 10,
         "action":{
-            "type": "ascii"
+            "type": "ascii",
+            "nonAsciiPlaceholder": "."
         }
     },
     {
         "name": "objAttr",
         "description": "Object Attributes (0x0B - 0x0B  | 1 Byte)",
         "start": 11,
-        "end": 11
+        "end": 11,
+        "action":{
+            "type": "bitequals",
+            "endianess": "big",
+            "cmp": [
+                {
+                    "value": "00000001",
+                    "description": "Read Only Access"
+                },
+                {
+                    "value": "00000010",
+                    "description": "Hidden"
+                },
+                {
+                    "value": "00000100",
+                    "description": "Windows System File"
+                },
+                {
+                    "value": "00001000",
+                    "description": "FAT Volume Label"
+                },
+                {
+                    "value": "00001111",
+                    "description": "Long Filename"
+                },
+                {
+                    "value": "00010001",
+                    "description": "Directory"
+                },
+                {
+                    "value": "00100000",
+                    "description": "Object is Part of Archive"
+                }
+            ],
+            "noMatch": "No attributes matched!"
+        }
     },
     {
         "name": "reserved",
@@ -39,43 +76,71 @@
         "name": "objectCreationHourMinSec",
         "description": "Time of Object Creation in Hours, Minutes and Seconds (0x0E - 0x0F  | 2 Byte)",
         "start": 14,
-        "end": 15
+        "end": 15,
+        "action": {
+            "type": "dostime",
+            "endianess": "little"
+        }
     },
     {
         "name": "objectCreationDate",
         "description": "Date of Object Creation (0x10 - 0x11  | 2 Byte)",
         "start": 16,
-        "end": 17
+        "end": 17,
+        "action": {
+            "type": "dosdate",
+            "endianess": "little"
+        }
     },
     {
         "name": "lastAccessDate",
         "description": "Date of Last Object Access (0x12 - 0x13  | 2 Byte)",
         "start": 18,
-        "end": 19
+        "end": 19,
+        "action": {
+            "type": "dosdate",
+            "endianess": "little"
+        }
     },
     {
         "name": "addrFirstDataUnitMSB",
         "description": "Addr of first Data Unit (2 MSB) (0x14 - 0x15  | 2 Byte)",
         "start": 20,
-        "end": 21
+        "end": 21,
+        "action": {
+            "type": "decimal",
+            "endianess": "little"
+        }
     },
     {
         "name": "lastWriteAccessTime",
         "description": "Time of Last Object Write Access in Hours, Minutes and Seconds (0x16 - 0x17  | 2 Byte)",
         "start": 22,
-        "end": 23
+        "end": 23,
+        "action": {
+            "type": "dostime",
+            "endianess": "little"
+        }
     },
     {
         "name": "lastWriteAccessDate",
         "description": "Date of Last Object Write Access (0x18 - 0x19  | 2 Byte)",
         "start": 24,
-        "end": 25
+        "end": 25,
+        "action": {
+            "type": "dosdate",
+            "endianess": "little"
+        }
     },
     {
         "name": "addrFirstDataUnitLSB",
         "description": "Addr of first Data Unit (2 LSB) (0x1A - 0x1B  | 2 Byte)",
         "start": 26,
-        "end": 27
+        "end": 27,
+        "action": {
+            "type": "decimal",
+            "endianess": "little"
+        }
     },
     {
         "name": "objSize",
@@ -86,6 +151,5 @@
             "type": "decimal",
             "endianess": "little"
         }
-
     }
 ]

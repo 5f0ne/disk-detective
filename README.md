@@ -11,6 +11,8 @@ Provides tools to analyze disks on byte level
   - Provides information and analysis of:
     -  FAT VBR
     -  FAT FSInfo
+    -  FAT Directory Entry
+    -  FAT Long Filename
 
 # Under Construction
 
@@ -23,7 +25,6 @@ Provides tools to analyze disks on byte level
   - Examines extended parititions
 
 - File System Analyser
-  - FAT
   - ext
   - NTFS
   
@@ -36,12 +37,12 @@ Provides tools to analyze disks on byte level
 
 **From command line:**
 
-`python -m disk_detective --path PATH --mode {mbr,structure,fat-vbr,fat-fsinfo} [--offset OFFSET]`
+`python -m disk_detective --path PATH --mode {mbr,structure,fat-vbr,fat-fsinfo,fat-lfn,fat-dir-entry} [--offset OFFSET]`
 
 | Option | Short | Type | Default | Description |
 |---|---|---|---|---|
 |--path | -p | String | - | Path to file (dd, raw) or <br> path to disk (\\.\PhysicalDrive0, /dev/sda, /dev/disk1)|
-|--mode | -p | String | - | mbr = Examines the MBR <br> usage = Overview of disk space usage <br> fat-vbr = Examines FAT VBR <br> fat-fsinfo = Examines FAT FSInfo|
+|--mode | -p | String | - | mbr = Examines the MBR <br> usage = Overview of disk space usage <br> fat-vbr = Examines FAT VBR <br> fat-fsinfo = Examines FAT FSInfo <br> fat-lfn = Examines Long Filename Entries <br> fat-dir-entry = Examines Directory Entries |
 |--offset | -o | Int | - | The offset in bytes to start reading |
 
 # Example
@@ -67,6 +68,22 @@ Please find the result [here](example/example-fat-vbr.txt)
 `python -m disk_detective -p path/to/example.dd -m fat-fsinfo -o 1049088`
 
 Please find the result [here](example/example-fat-fsinfo.txt)
+
+<hr>
+
+**Output for mode == fat-lfn**
+
+`python -m disk_detective -p path/to/example.dd -m fat-lfn`
+
+Please find the result [here](example/example-fat-lfn.txt)
+
+<hr>
+
+**Output for mode == fat-dir-entry**
+
+`python -m disk_detective -p path/to/example.dd -m fat-dir-entry`
+
+Please find the result [here](example/example-fat-dir-entry.txt)
 
 
 # License

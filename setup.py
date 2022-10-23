@@ -5,7 +5,7 @@ with open("README.md", "r") as r:
 
 setup(
     name="disk_detective",            
-    version="0.3.0",
+    version="0.4.0",
     author="5f0",
     url="https://github.com/5f0ne/disk-detective",
     description="Provides tools to analyze disks on byte level",
@@ -22,7 +22,8 @@ setup(
     include_package_data=True,
     package_data={
         "disk_detective.fat.config": ["fat.json", "fat1216.json", "fat32.json",
-                                      "fat-type.json", "fat-fs-info.json"],
+                                      "fat-type.json", "fat-fs-info.json",
+                                      "fat-directory-entry.json", "fat-long-filename.json"],
         "disk_detective.ext.config": ["ext-file-descriptor-table.json", "ext-inode.json",
                                       "ext-super-block.json"],
         "disk_detective.ntfs.config": [],
@@ -31,7 +32,7 @@ setup(
         "hash_calc==1.1.0",
         "partitiontypes==1.0.1",
         "cnvrtr==1.1.1",
-        "ntrprtr==1.3.0"
+        "ntrprtr==1.3.2"
     ],
     entry_points={
         "console_scripts": [
