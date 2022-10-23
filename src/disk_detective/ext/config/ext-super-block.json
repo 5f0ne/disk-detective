@@ -1,0 +1,405 @@
+[
+    {
+        "name": "noOfInodes",
+        "description": "No. of Inodes",
+        "start": 0,
+        "end": 3,
+        "action": {
+            "type": "decimal",
+            "endianess": "little"
+        }
+    },
+    {
+        "name": "noOfBlocks",
+        "description": "No. of Blocks",
+        "start": 4,
+        "end": 7,
+        "action": {
+            "type": "decimal",
+            "endianess": "little"
+        }
+    },
+    {
+        "name": "noOfReservedBlocks",
+        "description": "No. of Reserved Blocks",
+        "start": 8,
+        "end": 11,
+        "action": {
+            "type": "decimal",
+            "endianess": "little"
+        }
+    },
+    {
+        "name": "noOfUnusedBlocks",
+        "description": "No. of Unused Blocks",
+        "start": 12,
+        "end": 15,
+        "action": {
+            "type": "decimal",
+            "endianess": "little"
+        }
+    },
+    {
+        "name": "noOfUnusedInodes",
+        "description": "No. of Unused Inodes",
+        "start": 16,
+        "end": 19,
+        "action": {
+            "type": "decimal",
+            "endianess": "little"
+        }
+    },
+    {
+        "name": "startingBlockBlockGroupZero",
+        "description": "Starting Block of Block Group 0",
+        "start": 20,
+        "end": 23,
+        "action": {
+            "type": "decimal",
+            "endianess": "little"
+        }
+    },
+    {
+        "name": "blockSize",
+        "description": "Size of Block",
+        "start": 24,
+        "end": 27,
+        "action": {
+            "type": "decimal",
+            "endianess": "little"
+        }
+    },
+    {
+        "name": "fragmentSize",
+        "description": "Size of Fragments",
+        "start": 28,
+        "end": 31,
+        "action": {
+            "type": "decimal",
+            "endianess": "little"
+        }
+    },
+    {
+        "name": "noOfBlocksPerBlockGroup",
+        "description": "No of. Blocks per Block Group",
+        "start": 32,
+        "end": 35,
+        "action": {
+            "type": "decimal",
+            "endianess": "little"
+        }
+    },
+    {
+        "name": "noOfFragmentsPerBlockGroup",
+        "description": "No. of Fragments per Block Group",
+        "start": 36,
+        "end": 39,
+        "action": {
+            "type": "decimal",
+            "endianess": "little"
+        }
+    },
+    {
+        "name": "noOfInodesPerBlockGroup",
+        "description": "No. of Inodes per BlockGroup",
+        "start": 40,
+        "end": 43,
+        "action": {
+            "type": "decimal",
+            "endianess": "little"
+        }
+    },
+    {
+        "name": "dateLastMounting",
+        "description": "Date of Last Mounting",
+        "start": 44,
+        "end": 47
+    },
+    {
+        "name": "dateLastWrite",
+        "description": "Date of Last Write Access",
+        "start": 48,
+        "end": 51
+    },
+    {
+        "name": "mountCounter",
+        "description": "Mount Counter",
+        "start": 52,
+        "end": 53,
+        "action": {
+            "type": "decimal",
+            "endianess": "little"
+        }
+    },
+    {
+        "name": "maxValueMountCounter",
+        "description": "Max. Value of Mount Counter",
+        "start": 54,
+        "end": 55,
+        "action": {
+            "type": "decimal",
+            "endianess": "little"
+        }
+    },
+    {
+        "name": "signature",
+        "description": "Signature",
+        "start": 56,
+        "end": 57
+    },
+    {
+        "name": "fileSystemStatus",
+        "description": "Status of File System",
+        "start": 58,
+        "end": 59,
+        "action": {
+            "type": "equals",
+            "cmp": [{
+                "value": "0001", 
+                "description": "clean"      
+            },{
+                "value": "0002",
+                "description": "File System Error"
+            },{
+                "value": "0004",
+                "description": "Orphan-Inodes Recovery"
+            }],
+            "noMatch": "No Match found!"
+        }
+    },
+    {
+        "name": "errorHandlingFlag",
+        "description": "Flag for Error Handling",
+        "start": 60,
+        "end": 61,
+        "action": {
+            "type": "equals",
+            "cmp": [{
+                "value": "0001", 
+                "description": "Ignore"      
+            },{
+                "value": "0002",
+                "description": "Mount Read Only"
+            },{
+                "value": "0003",
+                "description": "Panic"
+            }],
+            "noMatch": "No Match found!"
+        }
+    },    
+    {
+        "name": "minorVersion",
+        "description": "Minor Version",
+        "start": 62,
+        "end": 63
+    },
+    {
+        "name": "dateLastConsistencyCheck",
+        "description": "Date of Last Consistency Check",
+        "start": 64,
+        "end": 67
+    },
+    {
+        "name": "intervalBetweenForcedConsistencyChecks",
+        "description": "Interval between Forced Consistency Checks",
+        "start": 68,
+        "end": 71
+    },
+    {
+        "name": "osFileSystemCreator",
+        "description": "OS which created File System",
+        "start": 72,
+        "end": 75,
+        "action": {
+            "type": "equals",
+            "cmp": [{
+                "value": "00000000", 
+                "description": "Linux"      
+            },{
+                "value": "00000001",
+                "description": "GNU-Hurd"
+            },{
+                "value": "00000002",
+                "description": "Masix"
+            },{
+                "value": "00000003",
+                "description": "Free BSD"
+            },{
+                "value": "00000004",
+                "description": "Lites"
+            }],
+            "noMatch": "No Match found!"
+        }
+    },
+    {
+        "name": "majorVersion",
+        "description": "Major Verision",
+        "start": 76,
+        "end": 79,
+        "action": {
+            "type": "equals",
+            "cmp": [{
+                "value": "00000000", 
+                "description": "Normal"      
+            },{
+                "value": "00000001",
+                "description": "Dynamic"
+            }],
+            "noMatch": "No Match found!"
+        }
+    },
+    {
+        "name": "uidUserReservedArea",
+        "description": "UID of User with Access to Reserved Area",
+        "start": 80,
+        "end": 81
+    },
+    {
+        "name": "gidGroupReservedArea",
+        "description": "GID of Group with Access to Reserved Area",
+        "start": 82,
+        "end": 83
+    },
+    {
+        "name": "firstNonReservedInode",
+        "description": "First non reserved Inode",
+        "start": 84,
+        "end": 87,
+        "action": {
+            "type": "decimal",
+            "endianess": "little"
+        }
+    },
+    {
+        "name": "sizeInodeStructure",
+        "description": "Size of Inode Structure",
+        "start": 88,
+        "end": 89,
+        "action": {
+            "type": "decimal",
+            "endianess": "little"
+        }
+    },
+    {
+        "name": "superblockBlockGroup",
+        "description": "Block Group of Superblock",
+        "start": 90,
+        "end": 91,
+        "action": {
+            "type": "decimal",
+            "endianess": "little"
+        }
+    },
+    {
+        "name": "compatibleFeatures",
+        "description": "Compatible Features",
+        "start": 92,
+        "end": 95
+    },
+    {
+        "name": "incompatibleFeatures",
+        "description": "Incompatible Features",
+        "start": 96,
+        "end": 99
+    },
+    {
+        "name": "readOnlyCompatibleFeatures",
+        "description": "Read-Only Compatible Features",
+        "start": 100,
+        "end": 103
+    },
+    {
+        "name": "fileSystemID",
+        "description": "ID of File System",
+        "start": 104,
+        "end": 119
+    },
+    {
+        "name": "volumeName",
+        "description": "Volume Name",
+        "start": 120,
+        "end": 135,
+        "action": {
+            "type": "ascii"
+        }
+    },
+    {
+        "name": "lastMountPath",
+        "description": "Path of last Mount Point",
+        "start": 136,
+        "end": 199,
+        "action": {
+            "type": "ascii"
+        }
+    },
+    {
+        "name": "algoUsageBmp",
+        "description": "Algorithm Usage Bitmap",
+        "start": 200,
+        "end": 203
+    },
+    {
+        "name": "noOfPreAllocatedBlocksFile",
+        "description": "No. of pre-allocated Blocks per File",
+        "start": 204,
+        "end": 204,
+        "action": {
+            "type": "decimal",
+            "endianess": "little"
+        }
+    },
+    {
+        "name": "noOfPreAllocatedBlocksDir",
+        "description": "No. of pre-allocated Blocks per Directory",
+        "start": 205,
+        "end": 205,
+        "action": {
+            "type": "decimal",
+            "endianess": "little"
+        }
+    },
+    {
+        "name": "notUsed",
+        "description": "Not used",
+        "start": 206,
+        "end": 207
+    },
+    {
+        "name": "journalID",
+        "description": "Journal ID",
+        "start": 208,
+        "end": 223
+    },
+    {
+        "name": "journalInode",
+        "description": "Journal Inode",
+        "start": 224,
+        "end": 227,
+        "action": {
+            "type": "decimal",
+            "endianess": "little"
+        }
+    },
+    {
+        "name": "journalDevice",
+        "description": "Journal Device",
+        "start": 228,
+        "end": 231
+    },
+    {
+        "name": "startOrphanInodeList",
+        "description": "Start of Orphan Inode List",
+        "start": 232,
+        "end": 235,
+        "action": {
+            "type": "decimal",
+            "endianess": "little"
+        }
+    },
+    {
+        "name": "notUsed2",
+        "description": "Not Used",
+        "start": 236,
+        "end": 1023
+    }
+]

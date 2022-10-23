@@ -1,0 +1,137 @@
+[
+    {
+        "name": "sizeOfFatStructureInLS",
+        "description": "Size of FAT strucuture in LS (0x0024 - 0x0027 | 4 Bytes)",
+        "start": 36,
+        "end": 39,
+        "action": {
+            "type": "decimal",
+            "endianess": "little"
+        }
+    },
+    {
+        "name": "activeFatIndicator",
+        "description": "Indicates which FAT structure is active (0x0028 - 0x0029 | 2 Bytes)",
+        "start": 40,
+        "end": 41
+    },
+    {
+        "name": "fsVersionNumber",
+        "description": "File System Version Number (0x002A - 0x002B | 2 Bytes)",
+        "start": 42,
+        "end": 43
+    },
+    {
+        "name": "dataUnitOfRootDir",
+        "description": "Root Dir Data Unit (0x002C - 0x002F | 4 Bytes)",
+        "start": 44,
+        "end": 47
+    },
+    {
+        "name": "fsInfoLS",
+        "description": "Logical Sector of FSInfo structure (0x0030 - 0x0031 | 2 Bytes)",
+        "start": 48,
+        "end": 49,
+        "action": {
+            "type": "decimal",
+            "endianess": "little"
+        }
+    },
+    {
+        "name": "bootSectorCopyLS",
+        "description": "Logical Sector of Boot Sector Copy (0x0032 - 0x0033 | 2 Bytes)",
+        "start": 50,
+        "end": 51,
+        "action": {
+            "type": "decimal",
+            "endianess": "little"
+        }
+    },
+    {
+        "name": "reserved",
+        "description": "Reserved (0x0034 - 0x003F | 12 Bytes)",
+        "start": 52,
+        "end": 63
+    },
+    {
+        "name": "driveNumber",
+        "description": "INT 0x13 Drive Number (0x0040 - 0x0040 | 1 Bytes)",
+        "start": 64,
+        "end": 64,
+        "action":{
+            "type": "equals",
+            "cmp": [
+                {
+                    "value": "00",
+                    "description": "Floppy Disk"
+                },
+                {
+                    "value": "80",
+                    "description": "Hard Disk"
+                }
+            ],
+            "noMatch": "No match found!"
+        }
+    },
+    {
+        "name": "notUsed1",
+        "description": "Not Used (0x0041 - 0x0041 | 1 Bytes)",
+        "start": 65,
+        "end": 65
+    },
+    {
+        "name": "extendedBootSignature",
+        "description": "Extended Boot Signature (0x0042 - 0x0042 | 1 Bytes)",
+        "start": 66,
+        "end": 66,
+        "action":{
+            "type": "equals",
+            "cmp": [
+                {
+                    "value": "29",
+                    "description": "Drive Serial Number, Drive Descriptor and \n    FAT Type are available"
+                }
+            ],
+            "noMatch": "No additional fields"
+        }
+    },
+    {
+        "name": "driveSerialNumber",
+        "description": "Drive Serial Number (0x0043 - 0x0046 | 4 Bytes)",
+        "start": 67,
+        "end": 70
+    },
+    {
+        "name": "driveLabel",
+        "description": "Drive Label (0x0047 - 0x0051 | 11 Bytes)",
+        "start": 71,
+        "end": 81,
+        "action":{
+            "type": "ascii"
+        }
+    },
+    {
+        "name": "fatType",
+        "description": "FAT Type (0x0052 - 0x0059 | 8 Bytes)",
+        "start": 82,
+        "end": 89,
+        "action":{
+            "type": "ascii"
+        }
+    },
+    {
+        "name": "notUsed2",
+        "description": "Not Used (0x005A - 0x01FD | 420 Bytes)",
+        "start": 90,
+        "end": 509,
+        "action": {
+            "type": "hexdump"
+        }
+    },
+    {
+        "name": "signature",
+        "description": "Signature (0x01FE - 0x01FF | 2 Bytes)",
+        "start": 510,
+        "end": 511
+    }
+]

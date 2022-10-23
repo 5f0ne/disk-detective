@@ -1,0 +1,147 @@
+[
+    {
+        "name": "bootCodeJmpInst",
+        "description": "Boot Code JMP Instruction (0x0000 - 0x0002 | 3 Bytes)",
+        "start": 0,
+        "end": 2
+    },
+    {
+        "name": "fsOemName",
+        "description": "File System OEM Name (0x0003 - 0x000A | 8 Bytes)",
+        "start": 3,
+        "end": 10,
+        "action":{
+            "type": "ascii"
+        }
+    },
+    {
+        "name": "sectorSize",
+        "description": "Logical Sector Size (0x000B - 0x000C | 2 Bytes)",
+        "start": 11,
+        "end": 12,
+        "action":{
+            "type": "decimal",
+            "endianess": "little"
+        }
+    },
+    {
+        "name": "sectorsPerDataUnit",
+        "description": "Logical Sectors per Data Unit (0x000D - 0x000D | 1 Byte)",
+        "start": 13,
+        "end": 13,
+        "action":{
+            "type": "decimal",
+            "endianess": "little"
+        }
+    },
+    {
+        "name": "sectorsPerReserved",
+        "description": "Logical Sectors within Reserved Area (0x000E - 0x000F | 2 Bytes)",
+        "start": 14,
+        "end": 15,
+        "action":{
+            "type": "decimal",
+            "endianess": "little"
+        }
+    },
+    {
+        "name": "noOfFATs",
+        "description": "File Allocation Tables in File System (0x0010 - 0x0010 | 1 Byte)",
+        "start": 16,
+        "end": 16,
+        "action":{
+            "type": "decimal",
+            "endianess": "little"
+        }
+    },
+    {
+        "name": "maxFilesInRootDir",
+        "description": "Max. No. of Files in Root Directory (0x0011 - 0x0012 | 2 Bytes)",
+        "start": 17,
+        "end": 18,
+        "action":{
+            "type": "decimal",
+            "endianess": "little"
+        }
+    },
+    {
+        "name": "noOfSectorsInFS",
+        "description": "No. of Logical Sectors in File System (2 Bytes) (0x0013 - 0x0014 | 2 Bytes)",
+        "start": 19,
+        "end": 20,
+        "action":{
+            "type": "decimal",
+            "endianess": "little"
+        }
+    },
+    {
+        "name": "storageMediaType",
+        "description": "Disk Type (2 Bytes) (0x0015 - 0x0015 | 1 Byte)",
+        "start": 21,
+        "end": 21,
+        "action":{
+            "type": "equals",
+            "cmp": [
+                {
+                    "value": "f8",
+                    "description": "Fixed"
+                },
+                {
+                    "value": "f0",
+                    "description": "Removable"
+                }
+            ],
+            "noMatch": "No match found!"
+        }
+    },
+    {
+        "name": "noOfSectorsInFATs",
+        "description": "No. of Logical Sectors per File Allocation Table (0x0016 - 0x0017 | 2 Bytes)",
+        "start": 22,
+        "end": 23,
+        "action":{
+            "type": "decimal",
+            "endianess": "little"
+        }
+    },
+    {
+        "name": "noOfSectorsPerTrack",
+        "description": "No. of Logical Sectors per Track (0x0018 - 0x0019 | 2 Bytes)",
+        "start": 24,
+        "end": 25,
+        "action":{
+            "type": "decimal",
+            "endianess": "little"
+        }
+    },
+    {
+        "name": "noOfHeads",
+        "description": "No. of Heads (0x001A - 0x001B | 2 Bytes)",
+        "start": 26,
+        "end": 27,
+        "action":{
+            "type": "decimal",
+            "endianess": "little"
+        }
+    },
+    {
+        "name": "noOfHiddenLS",
+        "description": "No. of Hidden Logical Sectors before Start of Partition (0x001C - 0x001F | 4 Bytes)",
+        "start": 28,
+        "end": 31,
+        "action":{
+            "type": "decimal",
+            "endianess": "little"
+        }
+    },
+    {
+        "name": "noOfSectorsInFS_long",
+        "description": " No. of Logical Sectors in File System (4 Bytes) (0x0020 - 0x0023 | 4 Bytes)",
+        "start": 32,
+        "end": 35,
+        "action":{
+            "type": "decimal",
+            "endianess": "little"
+        }
+    }
+]

@@ -1,0 +1,83 @@
+[
+    {
+        "name": "driveNumber",
+        "description": "INT 0x13 Drive Number (0x0024 - 0x0024 | 1 Byte)",
+        "start": 36,
+        "end": 36,
+        "action":{
+            "type": "equals",
+            "cmp": [
+                {
+                    "value": "00",
+                    "description": "Floppy Disk"
+                },
+                {
+                    "value": "80",
+                    "description": "Hard Disk"
+                }
+            ],
+            "noMatch": "No match found!"
+        }
+    },
+    {
+        "name": "reserved",
+        "description": "Reserved (0x0025 - 0x0025 | 1 Byte)",
+        "start": 37,
+        "end": 37
+    },
+    {
+        "name": "extendedBootSignature",
+        "description": "Extended Boot Signature (0x0026 - 0x0026 | 1 Bytes)",
+        "start": 38,
+        "end": 38,
+        "action":{
+            "type": "equals",
+            "cmp": [
+                {
+                    "value": "29",
+                    "description": "Drive Serial Number, Drive Descriptor and \n    FAT Type are available"
+                }
+            ],
+            "noMatch": "No additional fields"
+        }
+    },
+    {
+        "name": "driveSerialNumber",
+        "description": "Drive Serial Number (0x0027 - 0x002A | 4 Bytes)",
+        "start": 39,
+        "end": 42
+    },
+    {
+        "name": "driveLabel",
+        "description": "Drive Label (0x002B - 0x0035 | 11 Bytes)",
+        "start": 43,
+        "end": 53,
+        "action":{
+            "type": "ascii"
+        }
+    },
+    {
+        "name": "fatType",
+        "description": "FAT Type (0x0036 - 0x003D | 8 Bytes)",
+        "start": 54,
+        "end": 61,
+        "action":{
+            "type": "ascii"
+        }
+    },
+    {
+        "name": "notUsed",
+        "description": "Not Used (0x003E - 0x01FD | 448 Byte)",
+        "start": 62,
+        "end": 509,
+        "action": {
+            "type": "hexdump"
+        }
+    },
+    {
+        "name": "signature",
+        "description": "Signature (0x01FE - 0x01FF | 2 Byte)",
+        "start": 510,
+        "end": 511
+    }
+]

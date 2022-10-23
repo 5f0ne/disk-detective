@@ -2,6 +2,7 @@ env/
 data
 dist/
 build/
+output/
 test.py
 TODO.md
 *-setup-*

@@ -8,7 +8,9 @@ Provides tools to analyze disks on byte level
   - Provides information and analysis of MBR
 
 - FAT Examiner
-  - Provides information and analysis of FAT boot sector
+  - Provides information and analysis of:
+    -  FAT VBR
+    -  FAT FSInfo
 
 # Under Construction
 
@@ -34,12 +36,12 @@ Provides tools to analyze disks on byte level
 
 **From command line:**
 
-`python -m disk_detective --path PATH --mode {mbr,structure,fat} [--offset OFFSET]`
+`python -m disk_detective --path PATH --mode {mbr,structure,fat-vbr,fat-fsinfo} [--offset OFFSET]`
 
 | Option | Short | Type | Default | Description |
 |---|---|---|---|---|
 |--path | -p | String | - | Path to file (dd, raw) or <br> path to disk (\\.\PhysicalDrive0, /dev/sda, /dev/disk1)|
-|--mode | -p | String | - | mbr = Examines the MBR <br> usage = Overview of disk space usage <br> fat = Examines FAT Boot Record |
+|--mode | -p | String | - | mbr = Examines the MBR <br> usage = Overview of disk space usage <br> fat-vbr = Examines FAT VBR <br> fat-fsinfo = Examines FAT FSInfo|
 |--offset | -o | Int | - | The offset in bytes to start reading |
 
 # Example
@@ -52,11 +54,20 @@ Please find the result [here](example/example-mbr.txt)
 
 <hr>
 
-**Output for mode == fat**
+**Output for mode == fat-vbr**
 
-`python -m disk_detective -p path/to/example.dd -m fat -o 1048576`
+`python -m disk_detective -p path/to/example.dd -m fat-vbr -o 1048576`
 
-Please find the result [here](example/example-fat.txt)
+Please find the result [here](example/example-fat-vbr.txt)
+
+<hr>
+
+**Output for mode == fat-fsinfo**
+
+`python -m disk_detective -p path/to/example.dd -m fat-fsinfo -o 1049088`
+
+Please find the result [here](example/example-fat-fsinfo.txt)
+
 
 # License
 

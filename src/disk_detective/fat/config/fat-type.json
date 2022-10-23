@@ -1,0 +1,20 @@
+[
+    {
+        "name": "fat1216Type",
+        "description": "",
+        "start": 54,
+        "end": 61,
+        "action":{
+            "type": "ascii"
+        }
+    },
+    {
+        "name": "fat32Type",
+        "description": "",
+        "start": 82,
+        "end": 89,
+        "action":{
+            "type": "ascii"
+        }
+    }
+]

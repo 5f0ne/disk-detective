@@ -1,0 +1,72 @@
+[
+    {
+        "name": "blockBitmap",
+        "description": "Block Bitmap (Address first Block)",
+        "start": 0,
+        "end": 3,
+        "action": {
+            "type": "decimal",
+            "endianess": "little"
+        }
+    },
+    {
+        "name": "inodeBitmap",
+        "description": "Inode Bitmap (Address first Block)",
+        "start": 4,
+        "end": 7,
+        "action": {
+            "type": "decimal",
+            "endianess": "little"
+        }
+    },
+    {
+        "name": "inodeTable",
+        "description": "Inode Table (Address first Block)",
+        "start": 8,
+        "end": 11,
+        "action": {
+            "type": "decimal",
+            "endianess": "little"
+        }
+    },
+    {
+        "name": "noOfFreeBlocksInGroup",
+        "description": "No. of Free Blocks in Group",
+        "start": 12,
+        "end": 13,
+        "action": {
+            "type": "decimal",
+            "endianess": "little"
+        }
+    },
+    {
+        "name": "noOfFreeInodesInGroup",
+        "description": "No. of Free Inodes in Group",
+        "start": 14,
+        "end": 15,
+        "action": {
+            "type": "decimal",
+            "endianess": "little"
+        }
+    },
+    {
+        "name": "noOfDirsInGroup",
+        "description": "No. of Directories in Group",
+        "start": 16,
+        "end": 17,
+        "action": {
+            "type": "decimal",
+            "endianess": "little"
+        }
+    },
+    {
+        "name": "notUsed",
+        "description": "Not Used",
+        "start": 18,
+        "end": 31,
+        "action": {
+            "type": "decimal",
+            "endianess": "little"
+        }
+    }
+]

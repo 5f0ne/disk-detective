@@ -1,0 +1,162 @@
+[
+    {
+        "name": "fileMode",
+        "description": "File Mode (Type and Permissions)",
+        "start": 0,
+        "end": 1
+    },
+    {
+        "name": "lower16BitUID",
+        "description": "Lower 16 Bit of User ID",
+        "start": 2,
+        "end": 3
+    },
+    {
+        "name": "lower32BitFileSize",
+        "description": "Lower 32 Bit of File Size",
+        "start": 4,
+        "end": 7
+    },
+    {
+        "name": "accessTime",
+        "description": "Access Time (atime)",
+        "start": 8,
+        "end": 11
+    },
+    {
+        "name": "changeTime",
+        "description": "Change Time (ctime, last inode modification)",
+        "start": 12,
+        "end": 15
+    },
+    {
+        "name": "modificationTime",
+        "description": "Modification Time (mtime: Letzte Änderung am Dateiinhalt)",
+        "start": 16,
+        "end": 19
+    },
+    {
+        "name": "deletionTime",
+        "description": "Deletion Time",
+        "start": 20,
+        "end": 23
+    },
+    {
+        "name": "lower16BitGroupID",
+        "description": "Lower 16 Bit of Group ID",
+        "start": 24,
+        "end": 25
+    },
+    {
+        "name": "linkCount",
+        "description": "Link Count",
+        "start": 26,
+        "end": 27
+    },
+    {
+        "name": "noOfSectors",
+        "description": "No. of Sectors",
+        "start": 28,
+        "end": 31,
+        "action": {
+            "type": "amount",
+            "endianess": "little"
+        }
+    },
+    {
+        "name": "flags",
+        "description": "Flags",
+        "start": 32,
+        "end": 35
+    },
+    {
+        "name": "notUsed1",
+        "description": "Not used",
+        "start": 36,
+        "end": 39
+    },
+    {
+        "name": "dataBlockPointer12",
+        "description": "12 direct Data Block Pointer",
+        "start": 40,
+        "end": 87
+    },
+    {
+        "name": "simpleIndirectDataBlockPointer",
+        "description": "1 simple indirect Data Block Pointer",
+        "start": 88,
+        "end": 91
+    },
+    {
+        "name": "doubleIndirectDataBlockPointer",
+        "description": "1 double indirect Data Block Pointer",
+        "start": 92,
+        "end": 95
+    },
+    {
+        "name": "tripleIndirectDataBlockPointer",
+        "description": "1 triple indirect Data Block Pointer",
+        "start": 96,
+        "end": 99
+    },
+    {
+        "name": "generationNumber",
+        "description": "Generation Number (NFS)",
+        "start": 100,
+        "end": 103
+    },
+    {
+        "name": "extendedAttributes",
+        "description": "Extended Attributes (File ACL)",
+        "start": 104,
+        "end": 107
+    },
+    {
+        "name": "upper32BitsFileSize",
+        "description": "Upper 32 Bits of File Size",
+        "start": 108,
+        "end": 111
+    },
+    {
+        "name": "fragmentBlockAddress",
+        "description": "Block Address of Fragment",
+        "start": 112,
+        "end": 115
+    },
+    {
+        "name": "fragmentIndexInBlock",
+        "description": "Fragment Index within Block",
+        "start": 116,
+        "end": 116
+    },
+    {
+        "name": "fragmentSize",
+        "description": "Fragment Size",
+        "start": 117,
+        "end": 117
+    },
+    {
+        "name": "notUsed2",
+        "description": "Not Used",
+        "start": 118,
+        "end": 119
+    },
+    {
+        "name": "upper16BitUID",
+        "description": "Upper 16 Bit of User ID",
+        "start": 120,
+        "end": 121
+    },
+    {
+        "name": "upper16BitGID",
+        "description": "Upper 16 Bit of Group ID",
+        "start": 122,
+        "end": 123
+    },
+    {
+        "name": "notUsed3",
+        "description": "desc",
+        "start": 124,
+        "end": 127
+    }
+]

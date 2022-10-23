@@ -1,0 +1,91 @@
+[
+    {
+        "name": "objName_1",
+        "description": "First Letter of Object Name | Allocation State (0x00 - 0x00  | 1 Byte)",
+        "start": 0,
+        "end": 0,
+        "action":{
+            "type": "ascii"
+        }
+    },
+    {
+        "name": "objName2_11",
+        "description": "Letters 2 - 11 of Object Name (0x01 - 0x0A  | 10 Byte)",
+        "start": 1,
+        "end": 10,
+        "action":{
+            "type": "ascii"
+        }
+    },
+    {
+        "name": "objAttr",
+        "description": "Object Attributes (0x0B - 0x0B  | 1 Byte)",
+        "start": 11,
+        "end": 11
+    },
+    {
+        "name": "reserved",
+        "description": "Reserved (0x0C - 0x0C  | 1 Byte)",
+        "start": 12,
+        "end": 12
+    },
+    {
+        "name": "objectCreationHunSec",
+        "description": "Time of Object Creation in Hundredths of Seconds (0x0D - 0x0D  | 1 Byte)",
+        "start": 13,
+        "end": 13
+    },
+    {
+        "name": "objectCreationHourMinSec",
+        "description": "Time of Object Creation in Hours, Minutes and Seconds (0x0E - 0x0F  | 2 Byte)",
+        "start": 14,
+        "end": 15
+    },
+    {
+        "name": "objectCreationDate",
+        "description": "Date of Object Creation (0x10 - 0x11  | 2 Byte)",
+        "start": 16,
+        "end": 17
+    },
+    {
+        "name": "lastAccessDate",
+        "description": "Date of Last Object Access (0x12 - 0x13  | 2 Byte)",
+        "start": 18,
+        "end": 19
+    },
+    {
+        "name": "addrFirstDataUnitMSB",
+        "description": "Addr of first Data Unit (2 MSB) (0x14 - 0x15  | 2 Byte)",
+        "start": 20,
+        "end": 21
+    },
+    {
+        "name": "lastWriteAccessTime",
+        "description": "Time of Last Object Write Access in Hours, Minutes and Seconds (0x16 - 0x17  | 2 Byte)",
+        "start": 22,
+        "end": 23
+    },
+    {
+        "name": "lastWriteAccessDate",
+        "description": "Date of Last Object Write Access (0x18 - 0x19  | 2 Byte)",
+        "start": 24,
+        "end": 25
+    },
+    {
+        "name": "addrFirstDataUnitLSB",
+        "description": "Addr of first Data Unit (2 LSB) (0x1A - 0x1B  | 2 Byte)",
+        "start": 26,
+        "end": 27
+    },
+    {
+        "name": "objSize",
+        "description": "Size of Object in Bytes (0x1C - 0x1F  | 4 Byte)",
+        "start": 28,
+        "end": 31,
+        "action": {
+            "type": "decimal",
+            "endianess": "little"
+        }
+
+    }
+]
